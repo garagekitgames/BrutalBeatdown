@@ -1,0 +1,725 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &210407702775432794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 210407702775432795}
+  - component: {fileID: 210407702775432796}
+  - component: {fileID: 11799622}
+  - component: {fileID: 559005984}
+  - component: {fileID: 559005983}
+  - component: {fileID: 559005987}
+  - component: {fileID: 559005986}
+  - component: {fileID: 559005985}
+  - component: {fileID: 8553313630352782821}
+  - component: {fileID: 559005991}
+  - component: {fileID: 559005990}
+  - component: {fileID: 559005989}
+  - component: {fileID: 559005992}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &210407702775432795
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210407702775432794}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.014859, y: 4.8966694, z: -4.11383}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &210407702775432796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210407702775432794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f686b5bce2a98dd47a76d885afef5ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+  sounds:
+  - name: CoinDrop1
+    clip: {fileID: 8300000, guid: ead95c0dd8a7f0646a1103668d5cbb47, type: 3}
+    volume: 0.1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: CoinDrop2
+    clip: {fileID: 8300000, guid: 84eca2d7a209d5b4ea70b961cbeade1e, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: CoinCollect
+    clip: {fileID: 8300000, guid: 348fd67127e81324f9d240d04f6f0117, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: WoodImpact1
+    clip: {fileID: 8300000, guid: ed472e4700b09a146973e67b72c06b15, type: 3}
+    volume: 0.592
+    volumeVariance: 0.5
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: WoodImpact2
+    clip: {fileID: 8300000, guid: 7cb4ca7e188d29f479bd45904f569261, type: 3}
+    volume: 0.494
+    volumeVariance: 0.5
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: WoodImapct3
+    clip: {fileID: 8300000, guid: e6540e7a7f787de40803cf825504de3d, type: 3}
+    volume: 0.598
+    volumeVariance: 0.5
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: WoodBreak1
+    clip: {fileID: 8300000, guid: 8b5120e4878862d4ea8278e2b584ff0c, type: 3}
+    volume: 0.72
+    volumeVariance: 0.5
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: WoodBreak2
+    clip: {fileID: 8300000, guid: 043fffb506564d04d86c637d72ccd035, type: 3}
+    volume: 0.622
+    volumeVariance: 0.5
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: WoodBreak3
+    clip: {fileID: 8300000, guid: 90ee1ade44d2d914fa9c2af86c2947a3, type: 3}
+    volume: 0.519
+    volumeVariance: 0.5
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: WoodBreak4
+    clip: {fileID: 8300000, guid: 297e71c5647a1bd459c87a1b7786e79a, type: 3}
+    volume: 0.525
+    volumeVariance: 0.5
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: WoodBreak5
+    clip: {fileID: 8300000, guid: 810cc075bfdf8cc40be8dd6ed5024529, type: 3}
+    volume: 0.494
+    volumeVariance: 0.5
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: WoodCrack1
+    clip: {fileID: 8300000, guid: 4cc0fad72ee57814491466b56f6fcd55, type: 3}
+    volume: 0.5
+    volumeVariance: 0.5
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: WoodCrack2
+    clip: {fileID: 8300000, guid: caf1e1bd8b179254e953bac1377a32fd, type: 3}
+    volume: 0.519
+    volumeVariance: 0.5
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: BGM1
+    clip: {fileID: 8300000, guid: 3a57381663f184aee8ccd0f726fb5de6, type: 3}
+    volume: 0.3
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    playOnAwake: 0
+    mixerGroup: {fileID: 24324684, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: BGM2
+    clip: {fileID: 8300000, guid: 9d4efa5771b2b429fb0c971c1b47a028, type: 3}
+    volume: 0.3
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    playOnAwake: 0
+    mixerGroup: {fileID: 24324684, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: EnemyAlert
+    clip: {fileID: 8300000, guid: 486745ca04221b14e8b87ac34ecab524, type: 3}
+    volume: 0.882
+    volumeVariance: 0.463
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: EnemyHuh
+    clip: {fileID: 8300000, guid: 8416e6caf1c0747cfadfafdeb750d544, type: 3}
+    volume: 0.882
+    volumeVariance: 0.463
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: LevelWon
+    clip: {fileID: 8300000, guid: 01469069c26e34e4189931257343cadb, type: 3}
+    volume: 0.882
+    volumeVariance: 0.463
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: LevelFailed
+    clip: {fileID: 8300000, guid: fac63771537bb41db98275c7ff13005d, type: 3}
+    volume: 0.882
+    volumeVariance: 0.463
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: Star1
+    clip: {fileID: 8300000, guid: f6db2e72671c047259897cc70b0d311e, type: 3}
+    volume: 0.882
+    volumeVariance: 0.463
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: Star2
+    clip: {fileID: 8300000, guid: c764939894e2d4f4a98a1a75ed507504, type: 3}
+    volume: 0.882
+    volumeVariance: 0.463
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: Star3
+    clip: {fileID: 8300000, guid: 3cf25798013e04d45965e88150f08da2, type: 3}
+    volume: 0.882
+    volumeVariance: 0.463
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: LaserOn
+    clip: {fileID: 8300000, guid: 4c89686dc71244cd281315b1016a8321, type: 3}
+    volume: 0.2
+    volumeVariance: 0.463
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: LaserOff
+    clip: {fileID: 8300000, guid: 27e615fca16434691994b13c448e5e0c, type: 3}
+    volume: 0.2
+    volumeVariance: 0.463
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: Siren
+    clip: {fileID: 8300000, guid: 9fe3be28a875d42368d406d7177c7937, type: 3}
+    volume: 0.2
+    volumeVariance: 0.463
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: EnemyHey1
+    clip: {fileID: 8300000, guid: ab9cb2864083540f8974a7adbb98b9d9, type: 3}
+    volume: 0.684
+    volumeVariance: 0.463
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: EnemyHey2
+    clip: {fileID: 8300000, guid: b0f12f99ada3f478f85da5ac07de821b, type: 3}
+    volume: 0.597
+    volumeVariance: 0.463
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: EnemyHey3
+    clip: {fileID: 8300000, guid: d3fab530b1f0941f4abfc75ed0879276, type: 3}
+    volume: 0.63
+    volumeVariance: 0.463
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+  - name: GunShot
+    clip: {fileID: 8300000, guid: 8c50f5286f37f624caf682978d149d80, type: 3}
+    volume: 1
+    volumeVariance: 0.463
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    playOnAwake: 0
+    mixerGroup: {fileID: 24301952, guid: 4fc68a2de5e928e40892b5c23e08988a, type: 2}
+    source: {fileID: 0}
+    fadingIn: 0
+    fadingOut: 0
+--- !u!114 &11799622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210407702775432794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a055b694402bd469a86915f1319e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 5d9da811bd5fe468b8e1ffaabff9839a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 210407702775432794}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &559005984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210407702775432794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a055b694402bd469a86915f1319e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 8f062f3a809e049ebbe8b3c072ede5d5, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 210407702775432796}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LevelWon
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 210407702775432796}
+        m_MethodName: Stop
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Siren
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &559005983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210407702775432794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a055b694402bd469a86915f1319e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: f1ea15228dd5f41eaaa3de07547a5735, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 210407702775432796}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LevelFailed
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 210407702775432796}
+        m_MethodName: Stop
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Siren
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &559005987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210407702775432794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a055b694402bd469a86915f1319e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 929d40d140c0f4f3ba8ab6089150aea6, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 210407702775432796}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Star1
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &559005986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210407702775432794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a055b694402bd469a86915f1319e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: db5695963224e46f59e28861e872615d, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 210407702775432796}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Star2
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &559005985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210407702775432794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a055b694402bd469a86915f1319e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: d858fc0dabd774667b3e3d572c621073, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 210407702775432796}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Star3
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8553313630352782821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210407702775432794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a055b694402bd469a86915f1319e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 4a7e2b65654924cbe875a7b81f0042e0, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 210407702775432796}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: EnemyHuh
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &559005991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210407702775432794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a055b694402bd469a86915f1319e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 98107b03b93554e2f9f8182f38be51c9, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 210407702775432796}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: EnemyHey1
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &559005990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210407702775432794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a055b694402bd469a86915f1319e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 8829930901fd54a6980900cfbdb94373, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 210407702775432796}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: EnemyHey2
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &559005989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210407702775432794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a055b694402bd469a86915f1319e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 069a67097784149d6aa282119112a2c3, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 210407702775432796}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: EnemyHey2
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &559005992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210407702775432794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a055b694402bd469a86915f1319e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 83d2980da2c5f4f63bcc7bfc08bd9ff5, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 210407702775432796}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: GunShot
+          m_BoolArgument: 0
+        m_CallState: 2

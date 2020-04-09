@@ -1,0 +1,102 @@
+tree("Root")
+	parallel
+		repeat mute tree("Alive")
+		repeat mute tree("Dead")
+
+tree("Alive")
+	fallback
+		while IsAlive
+			fallback
+				tree("Shooting")
+				tree("Pursuing")
+				tree("Patrolling")
+		//Succeed()
+
+tree("Shooting")
+	sequence
+		//IsPlayerVisible
+		//Stop
+		while IsPlayerVisible
+			repeat
+				sequence
+					WaitRandom(0.5,1.0)
+					tree("Shoot")
+
+tree("Shoot")
+	repeat 5
+		sequence
+			LookAtPlayer
+			WaitRandom(0.1, 0.2)
+			Shoot
+
+
+tree("Pursuing")
+	while not IsPlayerVisible
+		sequence
+			IsPlayerLastSeen
+			fallback
+				sequence
+					HasLineOfSight
+					tree("Shoot")
+				Succeed()
+			sequence
+				PickPlayerLastSeenDestination
+				MoveToDestination
+				WaitRandom(0.5,1.0)
+				fallback
+					sequence
+						IsPlayerVisible
+						tree("Shoot")
+					sequence
+						not IsPlayerVisible
+						PickNearbyHideDestination
+						MoveToDestination
+						WaitRandom(0.5,1.0)
+						fallback
+							sequence
+								IsPlayerVisible
+								tree("Shoot")
+							sequence
+								not IsPlayerVisible
+								PickNearbyHideDestination
+								MoveToDestination
+								WaitRandom(0.5,1.0)
+								fallback
+									sequence
+										IsPlayerVisible
+										tree("Shoot")
+									sequence
+										not IsPlayerVisible
+										PickNearbyHideDestination
+										MoveToDestination
+										WaitRandom(0.5,1.0)
+										fallback
+											sequence
+												IsPlayerVisible
+												tree("Shoot")
+											sequence
+												not IsPlayerVisible
+												ForgetPlayer
+
+tree("Patrolling")
+	while not IsPlayerVisible
+		while not IsPlayerLastSeen
+			sequence
+				PickRandomDestination
+				MoveToDestinationPatrol
+				//not IsPlayerVisible
+				//repeat 3
+					//sequence
+						//random
+							//Turn(90.0)
+							//Turn(-90.0)
+							//Turn(145.0)
+							//Turn(-27.0)
+						//LookAtTarget
+						//not IsPlayerVisible
+						//tree("Shoot")
+						//WaitRandom(1.0,2.0)
+
+
+tree("Dead")
+	Running()

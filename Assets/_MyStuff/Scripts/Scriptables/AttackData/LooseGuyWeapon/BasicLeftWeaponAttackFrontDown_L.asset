@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5b28bb3eae8521498e67eb2f29fef11, type: 3}
+  m_Name: BasicLeftWeaponAttackFrontDown_L
+  m_EditorClassIdentifier: 
+  attackType: {fileID: 11400000, guid: be48d13f4884bdc43a3487f5a14b029b, type: 2}
+  windupAttackPoses:
+  - {fileID: 11400000, guid: 4c4f0b876c1c21a4d9285252058e984b, type: 2}
+  - {fileID: 11400000, guid: 4b928de0cdd4c3c4e90a8cf424a4dda7, type: 2}
+  - {fileID: 11400000, guid: 312886774e447694b997af6d901a5a6d, type: 2}
+  attackingAttackPoses:
+  - {fileID: 11400000, guid: a3154e4e6d628ec418788e61a327c70e, type: 2}
+  - {fileID: 11400000, guid: 1da6d7b943f8ac04e8f3f691584699ce, type: 2}
+  - {fileID: 11400000, guid: 71e1d93c8fcf4c744b2051cd90e7592d, type: 2}
+  afterAttackPoses:
+  - {fileID: 11400000, guid: 1b0406bc82789a2468f36ba294eedb80, type: 2}
+  - {fileID: 11400000, guid: 86526e3942150e1459f4eeda018f4755, type: 2}
+  - {fileID: 11400000, guid: ff8815374a58ca44e8f5259eb01ea5ef, type: 2}
+  attackForceRatio:
+  - {fileID: 11400000, guid: d2d4704162b73f948a409ca5de3931d8, type: 2}
+  - {fileID: 11400000, guid: af0f339f30dc8cc4b8aabe0606d559ab, type: 2}
+  - {fileID: 11400000, guid: 92c98eedeee0f2b4987b82748c6ef761, type: 2}
+  - {fileID: 11400000, guid: 1e0a10ac7038e3b45abca86d485f93db, type: 2}
+  attackForceApplyPercent: 0.25
+  attackPowerIncreaseRate: 5
+  accuracyReduceFactor: 0
+  attackSpeed: 0.2
+  startAttackPower: 1300
+  maxAttackPower: 3500
+  minAttackPower: 1300
+  chestPart: {fileID: 11400000, guid: d94c683725b0c104bbf80698b85bbd23, type: 2}
+  bodyPartToHitWith: {fileID: 11400000, guid: 4dd6f4b256bfb04488c893624dd84b96, type: 2}
+  windupHipBodyPart: {fileID: 11400000, guid: d94c683725b0c104bbf80698b85bbd23, type: 2}
+  windUpHipForward: -20
+  jumpOnWindUp: 1
+  jumpOnWindupForce: {x: 0, y: 800, z: 0}
