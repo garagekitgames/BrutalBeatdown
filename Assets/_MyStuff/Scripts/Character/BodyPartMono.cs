@@ -179,8 +179,12 @@ namespace garagekitgames{
             BodyPartGrabCheck = this.GetComponent<GrabCheck>();
             BodyPartInteractableObject = this.GetComponent<InteractableObject>();
 
-            transform.root.gameObject.GetComponent<CharacterBodyPartHolder>().bodyParts.Add(bodyPart, this);
-            transform.root.gameObject.GetComponent<CharacterBodyPartHolder>().bodyPartsName.Add(transform.name, this);
+            if(transform.root.gameObject.GetComponent<CharacterBodyPartHolder>())
+            {
+                transform.root.gameObject.GetComponent<CharacterBodyPartHolder>().bodyParts.Add(bodyPart, this);
+                transform.root.gameObject.GetComponent<CharacterBodyPartHolder>().bodyPartsName.Add(transform.name, this);
+
+            }
             myBrain = transform.root.gameObject.GetComponent<CharacterThinker>();
             //Debug.Log(transform.root.name);
 

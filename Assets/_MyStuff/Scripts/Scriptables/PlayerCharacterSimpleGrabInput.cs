@@ -176,8 +176,8 @@ namespace garagekitgames
 
                     character.rightbuttonClickTimer = 0f;
                     character.rightgrab = false;
-
-                    IEnumerator coroutine = character.DoSimpleGrab(0.5f);
+                    //var gad = character.grab
+                    IEnumerator coroutine = character.DoSimpleGrab(character.grabAttemptDuration);
                     character.StartCoroutine(coroutine);
 
                 }

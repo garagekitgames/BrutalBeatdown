@@ -60,7 +60,11 @@ namespace garagekitgames
                 //To slow down player
                 chestBody.velocity *= -30f * Time.deltaTime;
                 character.speed = character.windUpSpeed;
-                hipFaceDirection.bodyForward.y = currentAttack.windUpHipForward;
+                if(hipFaceDirection)
+                {
+                    hipFaceDirection.bodyForward.y = currentAttack.windUpHipForward;
+
+                }
                 if (windTimer < 0.2f && currentAttack.jumpOnWindUp)//check for jump in air as well
                 {
                     //Jumps On Winup
@@ -161,6 +165,11 @@ namespace garagekitgames
                     character.attacking = false;
                     attackTimer = 0f;
                     character.speed = character.normalSpeed;
+                    if (hipFaceDirection)
+                    {
+                        hipFaceDirection.bodyForward.y = 0;
+
+                    }
                 }
             }
             /*character.Remember("attackTarget", attackTarget);

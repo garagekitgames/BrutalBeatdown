@@ -111,9 +111,9 @@ namespace garagekitgames
                 character.bpHolder.BodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.grabNow = false;
 
                 JointDrive x = character.bpHolder.bodyPartsName[BodyPartNames.larmName].BodyPartConfigJoint.slerpDrive;
-                x.positionDamper = 5;
-                x.positionSpring = 50;
-                x.maximumForce = 50;
+                x.positionDamper = 100;
+                x.positionSpring = 1000;
+                x.maximumForce = 1000;
                 character.bpHolder.bodyPartsName[BodyPartNames.larmName].BodyPartConfigJoint.slerpDrive = x;
 
                 //Vector3 jointValue = new Vector3(20f, 0f, 0f);
@@ -122,9 +122,9 @@ namespace garagekitgames
 
                 //BodyPartMono LFARMbodyPart = character.bpHolder.bodyPartsName[BodyPartNames.larmName];
                 JointDrive x1 = character.bpHolder.bodyPartsName[BodyPartNames.lfarmName].BodyPartConfigJoint.slerpDrive;
-                x1.positionDamper = 5;
-                x1.positionSpring = 50;
-                x1.maximumForce = 50;
+                x1.positionDamper = 100;
+                x1.positionSpring = 1000;
+                x1.maximumForce = 1000;
                 character.bpHolder.bodyPartsName[BodyPartNames.lfarmName].BodyPartConfigJoint.slerpDrive = x1;
 
                 //Vector3 jointValue = new Vector3(20f, 0f, 0f);
@@ -169,9 +169,9 @@ namespace garagekitgames
                 character.bpHolder.BodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.grabNow = false;
 
                 JointDrive x = character.bpHolder.bodyPartsName[BodyPartNames.rarmName].BodyPartConfigJoint.slerpDrive;
-                x.positionDamper = 5;
-                x.positionSpring = 50;
-                x.maximumForce = 50;
+                x.positionDamper = 100;
+                x.positionSpring = 1000;
+                x.maximumForce = 1000;
                 character.bpHolder.bodyPartsName[BodyPartNames.rarmName].BodyPartConfigJoint.slerpDrive = x;
 
                 //Vector3 jointValue = new Vector3(20f, 0f, 0f);
@@ -180,9 +180,9 @@ namespace garagekitgames
 
                 //BodyPartMono LFARMbodyPart = character.bpHolder.bodyPartsName[BodyPartNames.larmName];
                 JointDrive x1 = character.bpHolder.bodyPartsName[BodyPartNames.rfarmName].BodyPartConfigJoint.slerpDrive;
-                x1.positionDamper = 5;
-                x1.positionSpring = 50;
-                x1.maximumForce = 50;
+                x1.positionDamper = 100;
+                x1.positionSpring = 1000;
+                x1.maximumForce = 1000;
                 character.bpHolder.bodyPartsName[BodyPartNames.rfarmName].BodyPartConfigJoint.slerpDrive = x1;
 
                 //Vector3 jointValue = new Vector3(20f, 0f, 0f);

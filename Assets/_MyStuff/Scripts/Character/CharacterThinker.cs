@@ -166,6 +166,7 @@ namespace garagekitgames
 
         public bool isGrabbing = false;
 
+        public float grabAttemptDuration = 0.5f;
         
 
         [Header("Push & Pull Settings")]
