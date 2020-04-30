@@ -365,8 +365,8 @@ MonoBehaviour:
   _adjustMode: 1
   _verticalSnapMode: 1
   _horizontalSnapMode: 1
-  _mainAreaWidth: 1
-  _mainAreaHeight: 1.3333334
+  _mainAreaWidth: 2.0555556
+  _mainAreaHeight: 1
   _verticalFOV: 75.17818
   _horizontalFOV: 25.276949
   _verticalSize: 7.925496

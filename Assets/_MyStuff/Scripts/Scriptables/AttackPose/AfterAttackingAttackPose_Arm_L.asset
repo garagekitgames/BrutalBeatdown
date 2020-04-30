@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: AfterAttackingAttackPose_Arm_L
   m_EditorClassIdentifier: 
   bodyPart: {fileID: 11400000, guid: a832c977b9d4bd74db3a1835aabc4ea2, type: 2}
-  jointDrive: {x: 100, y: 1000, z: 1000}
+  jointDrive: {x: 5, y: 50, z: 50}
   targetAngularVelocity: {x: -15, y: -10, z: 5}

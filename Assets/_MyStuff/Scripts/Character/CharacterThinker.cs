@@ -208,6 +208,7 @@ namespace garagekitgames
         public bool isSeen;
 
         public bool isCaught;
+        public bool prevSide;
 
         public void DeathCry()
         {
@@ -779,7 +780,9 @@ namespace garagekitgames
                 {
                     windUp = true;
                     //character.Remember("windUp", windUp);
-                    PickAnAttack(this);
+
+                //Uncomment this to pick attack
+                    //PickAnAttack(this);
                 }
                 elapsed += Time.deltaTime;
                 yield return new WaitForEndOfFrame();

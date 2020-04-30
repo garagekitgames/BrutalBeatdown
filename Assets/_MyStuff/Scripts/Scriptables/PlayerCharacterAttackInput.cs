@@ -157,18 +157,37 @@ namespace garagekitgames
 
         private void PickAnAttack(CharacterThinker character)
         {
+            bool side = !character.prevSide;
             AttackData currentAttack = new AttackData();
             if (attackButton.Contains("SimplePrimaryAttack"))
             {
-                Debug.Log("Primary Attack");
-                currentAttack = character.primaryAttacks[UnityEngine.Random.Range(0, character.primaryAttacks.Count)];
+                //Debug.Log("Primary Attack");
+                if(side)
+                {
+                    currentAttack = character.primaryAttacks[0];
+                }
+                else
+                {
+                    currentAttack = character.primaryAttacks[1];
+                }
+                //currentAttack = character.primaryAttacks[UnityEngine.Random.Range(0, character.primaryAttacks.Count)];
             }
             else
             {
-                currentAttack = character.secondaryAttacks[UnityEngine.Random.Range(0, character.secondaryAttacks.Count)];
+                if (side)
+                {
+                    currentAttack = character.secondaryAttacks[0];
+                }
+                else
+                {
+                    currentAttack = character.secondaryAttacks[1];
+                }
+                //currentAttack = character.secondaryAttacks[UnityEngine.Random.Range(0, character.secondaryAttacks.Count)];
             }
             //AttackData currentAttack = character.attacks[UnityEngine.Random.Range(0, character.attacks.Count)];
             character.currentAttack = currentAttack;
+
+            character.prevSide = side;
         }
     }
 }
