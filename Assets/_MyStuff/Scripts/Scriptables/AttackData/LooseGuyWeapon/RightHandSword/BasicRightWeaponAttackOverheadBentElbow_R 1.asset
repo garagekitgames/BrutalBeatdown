@@ -35,9 +35,9 @@ MonoBehaviour:
   attackPowerIncreaseRate: 5
   accuracyReduceFactor: 0
   attackSpeed: 0.2
-  startAttackPower: 1000
-  maxAttackPower: 3000
-  minAttackPower: 1000
+  startAttackPower: 1500
+  maxAttackPower: 3500
+  minAttackPower: 1500
   chestPart: {fileID: 11400000, guid: d94c683725b0c104bbf80698b85bbd23, type: 2}
   bodyPartToHitWith: {fileID: 11400000, guid: bf48dae79ba887b41924dc33e5a9f63c, type: 2}
   windupHipBodyPart: {fileID: 11400000, guid: 20ee43b86dc57b44dac3640b44a4ae64, type: 2}

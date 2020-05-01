@@ -73,7 +73,7 @@ TagManager:
   - pathStart
   - pathEnd
   - pp_charcoll
-  - 
+  - weaponNoCollide
   - 
   - 
   - 

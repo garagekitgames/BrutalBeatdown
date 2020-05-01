@@ -207,6 +207,19 @@ namespace garagekitgames{
 
         }
 
+        public void AddToBodyParts(CharacterThinker _character)
+        {
+            _character.bpHolder.bodyParts.Add(bodyPart, this);
+            _character.bpHolder.bodyPartsName.Add(transform.name, this);
+
+        }
+        public void RemoveFromBodyParts(CharacterThinker _character)
+        {
+            _character.bpHolder.bodyParts.Remove(bodyPart);
+            _character.bpHolder.bodyPartsName.Remove(transform.name);
+            
+
+        }
         private void OnEnable()
         {
             if (BodyPartConfigJoint != null)
