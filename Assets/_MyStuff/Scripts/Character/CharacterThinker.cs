@@ -210,6 +210,8 @@ namespace garagekitgames
         public bool isCaught;
         public bool prevSide;
 
+        public GameObject longTarget;
+
         public void DeathCry()
         {
             EffectsController.Instance.PlayDeathSound(cryPart.BodyPartTransform.position, 200, cryPart.BodyPartTransform.tag);

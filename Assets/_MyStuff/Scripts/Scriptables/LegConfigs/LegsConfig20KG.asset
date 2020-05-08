@@ -25,7 +25,7 @@ MonoBehaviour:
   legRate: 0.4
   legRateIncreaseBy: 0.1
   liftForce: 80
-  holdDownForce: 500
+  holdDownForce: 800
   moveForwardForce: 150
   inFrontVelocityM: 0.4
   chestBendDownForce: 0

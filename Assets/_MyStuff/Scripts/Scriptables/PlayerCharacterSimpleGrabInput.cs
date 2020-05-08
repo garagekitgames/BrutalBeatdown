@@ -105,7 +105,7 @@ namespace garagekitgames
                     }
                     else
                     {
-                        character.pullForceVector = new Vector3(character.xForceDirection * (character.horizontalPullForce / (1 + Mathf.Abs(horizontalVelocity.x) * 4)), (0.8f) * character.verticalPullForce, character.zForceDirection * (character.horizontalPullForce / (1 + Mathf.Abs(horizontalVelocity.z) * 4)));
+                        character.pullForceVector = new Vector3(character.xForceDirection * (character.horizontalPullForce / (1 + Mathf.Abs(horizontalVelocity.x) * 4)), (1f) * character.verticalPullForce, character.zForceDirection * (character.horizontalPullForce / (1 + Mathf.Abs(horizontalVelocity.z) * 4)));
 
                     }
 

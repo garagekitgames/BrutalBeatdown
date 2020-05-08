@@ -25,7 +25,8 @@ public class InteractableObject : MonoBehaviour
         DivingKick,
         Headbutt,
         DivingHeadbutt,
-        Knockout
+        Knockout,
+        Weapon
     }
 
     public enum Grab

@@ -93,7 +93,14 @@ public class TargetCheck : MonoBehaviour
 
     public int selectedCharacter;
 
+    public GameObject longTarget;
+
+    public List<GameObject> visibleTargets = new List<GameObject>();
+
+    public bool debugLines = false;
     //public List<>
+
+    public LayerMask targetMask;
 
     private void Awake()
     {
@@ -140,6 +147,112 @@ public class TargetCheck : MonoBehaviour
         
     }
 
+    public void FindLongTarget()
+    {
+        visibleTargets.Clear();
+        Collider[] targetsInViewRadius = Physics.OverlapSphere(this.character.bpHolder.BodyPartsName["chest"].transform.position, 10, targetMask);
+
+        
+        
+            for (int i = 0; i < targetsInViewRadius.Length; i++)
+            {
+                if (targetsInViewRadius[i].transform.root != this.character.transform.root)
+                {
+                    Transform target = targetsInViewRadius[i].transform;
+                    Vector3 dirToTarget = (target.position - this.character.bpHolder.BodyPartsName["chest"].transform.position).normalized;
+                    if (Vector3.Angle(fD.rigidbody.transform.TransformDirection(fD.bodyForward).normalized, dirToTarget) < 180 / 2)
+                    {
+                        float dstToTarget = Vector3.Distance(this.character.bpHolder.BodyPartsName["chest"].transform.position, target.position);
+                        
+                       visibleTargets.Add(target.gameObject);
+                        if(debugLines)
+                        {
+                            Color color = Color.red;
+                            Debug.DrawLine(this.character.bpHolder.BodyPartsName["chest"].transform.position, target.position, color);
+
+                        }
+
+
+                    
+                    }
+                }
+                    
+
+            }
+
+        //Array.Sort<GameObject>(camTargetGroup.m_Targets, (x, y) => Vector3.Distance(Player.transform.position, x.target.transform.position)
+        //                                                                        .CompareTo(Vector3.Distance(Player.transform.position, y.target.transform.position)));
+
+        if(visibleTargets.Count > 0)
+        {
+            visibleTargets = visibleTargets.OrderBy(p => Vector3.Angle(fD.rigidbody.transform.TransformDirection(fD.bodyForward).normalized
+                                                        , (p.transform.position - this.character.bpHolder.BodyPartsName["chest"].transform.position).normalized))
+                                            //.OrderBy(p => Vector3.Distance(this.character.bpHolder.BodyPartsName["chest"].transform.position, p.transform.position))
+                                            .ToList();
+
+            var ct = visibleTargets[0].transform.root.GetComponent<CharacterThinker>();
+            if(ct)
+            {
+                if(!ct.isGrabbed)
+                {
+                    longTarget = visibleTargets[0];
+                    if (debugLines)
+                    {
+                        Color color = Color.green;
+                        Debug.DrawLine(this.character.bpHolder.BodyPartsName["chest"].transform.position, longTarget.transform.position, color);
+
+                    }
+                }
+                else
+                {
+                    longTarget = null;
+                }
+            }
+
+
+            
+        }
+        else
+        {
+            longTarget = null;
+        }
+
+        character.longTarget = longTarget;
+        
+    }
+
+    void ConvertMoveInputAndPassItToAnimator(Vector3 inputDirection)
+    {
+        //Convert the move input from world positions to local positions so that they have the correct values
+        //depending on where we look
+        Vector3 localMove = transform.InverseTransformDirection(inputDirection);
+        //localMove.Normalize();
+        float turnAmount = localMove.y;
+        float forwardAmount = localMove.z;
+
+        //
+        globalPosition = fD.transform.position + fD.rigidbody.transform.TransformDirection(fD.bodyForward).normalized * 2;
+        //targetTransform.transform.position = globalPosition;
+        globalPosition.y = 1.8f;
+
+        //character.target = globalPosition;
+
+        /* if (turnAmount != 0)
+             turnAmount *= 2;
+
+         */
+        //if (log)
+        //{
+        /*print("Forward : " + localMove);
+            print("turnAmount : " + turnAmount);
+            print("forwardAmount : " + forwardAmount);
+            print("inputdirection : " + inputDirection);
+            print("hipFacing : " + fD.bodyForward);*/
+        //}
+
+        //testVector2 = new Vector3(-forwardAmount, turnAmount, 0f);
+    }
+
     public void Update()
     {
         //Vector3 inputDirection = character.inputDirection;
@@ -160,9 +273,10 @@ public class TargetCheck : MonoBehaviour
         //}
 
 
-        
-        
-        
+        FindLongTarget();
+
+
+
         switch (targetingType)
         {
             case TargetingType.Dynamic:

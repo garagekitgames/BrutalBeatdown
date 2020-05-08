@@ -29,7 +29,7 @@ namespace garagekitgames
                     character.bpHolder.bodyPartsName[BodyPartNames.hipName].BodyPartMaintainHeight.desiredHeight = character.bpHolder.bodyPartsName[BodyPartNames.hipName].BodyPartMaintainHeight.initialDesiredHeight + 0.5f;
 
                 }
-                if (character.slamTimer >= character.slamTime * 0.4f && character.slamTimer < character.slamTime * 1f)
+                if (character.slamTimer >= character.slamTime * 0.4f)  //if (character.slamTimer >= character.slamTime * 0.4f && character.slamTimer < character.slamTime * 1f )
                 {
                     Vector3 horizontalVelocity = character.bpHolder.BodyPartsName[BodyPartNames.chestName].BodyPartRb.velocity;
                     character.pullForceVector = new Vector3(character.xForceDirection * (character.horizontalPullForce / (1 + Mathf.Abs(horizontalVelocity.x) * 4)), (-2) * character.verticalPullForce, character.zForceDirection * (character.horizontalPullForce / (1 + Mathf.Abs(horizontalVelocity.z) * 4)));
@@ -47,24 +47,25 @@ namespace garagekitgames
                     //character.bpHolder.bodyPartsName[BodyPartNames.larmName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().AddForce(-(character.bpHolder.bodyPartsName[BodyPartNames.hipName].transform.forward * 50) + (Vector3.down * 200) * Time.deltaTime, ForceMode.VelocityChange);
                     if(character.bpHolder.bodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision)
                     {
-                        character.bpHolder.bodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().AddForce((character.bpHolder.bodyPartsName[BodyPartNames.hipName].transform.forward * 2) + (Vector3.down * 150) * Time.deltaTime, ForceMode.VelocityChange);
+                        character.bpHolder.bodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().AddForce((character.bpHolder.bodyPartsName[BodyPartNames.hipName].transform.forward * 2) + (Vector3.down * 200) * Time.deltaTime, ForceMode.VelocityChange);
 
                     }
 
                     if (character.bpHolder.bodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision)
                     {
                         //character.bpHolder.bodyPartsName[BodyPartNames.rarmName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().AddForce(-(character.bpHolder.bodyPartsName[BodyPartNames.hipName].transform.forward * 50) + (Vector3.down * 200) * Time.deltaTime, ForceMode.VelocityChange);
-                        character.bpHolder.bodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().AddForce((character.bpHolder.bodyPartsName[BodyPartNames.hipName].transform.forward * 2) + (Vector3.down * 150) * Time.deltaTime, ForceMode.VelocityChange);
+                        character.bpHolder.bodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().AddForce((character.bpHolder.bodyPartsName[BodyPartNames.hipName].transform.forward * 2) + (Vector3.down * 200) * Time.deltaTime, ForceMode.VelocityChange);
 
                     }
 
-                    character.bpHolder.bodyPartsName[BodyPartNames.hipName].BodyPartMaintainHeight.desiredHeight = 0f;
+                    //character.bpHolder.bodyPartsName[BodyPartNames.hipName].BodyPartRb.AddForce((character.bpHolder.bodyPartsName[BodyPartNames.hipName].transform.forward * 2) + (Vector3.down * 150) * Time.deltaTime, ForceMode.VelocityChange);
+                    character.bpHolder.bodyPartsName[BodyPartNames.hipName].BodyPartMaintainHeight.desiredHeight = -1f;
                 }
                 /*if (character.slamTimer >= character.slamTime * 0.6f && character.slamTimer < character.slamTime * 1f)
                 {
 
                 }*/
-                if (character.slamTimer >= character.slamTime * 1f)
+                if (character.slamTimer >= character.slamTime * 1f && character.grounded)
                 {
 
                     character.bpHolder.bodyPartsName[BodyPartNames.hipName].BodyPartMaintainHeight.desiredHeight = character.bpHolder.bodyPartsName[BodyPartNames.hipName].BodyPartMaintainHeight.initialDesiredHeight;
@@ -88,8 +89,21 @@ namespace garagekitgames
                     {
                         if (character.bpHolder.BodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.GetComponent<InteractableObject>().partOfRagdoll)
                         {
-                             character.bpHolder.BodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.GetComponent<InteractableObject>().isGrabbed = false;
-                            character.bpHolder.BodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().AddForce((Vector3.ClampMagnitude(character.bpHolder.BodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().velocity * character.bpHolder.BodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().velocity.magnitude * character.minThrow * character.humanThrowScale / character.bpHolder.BodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().mass, character.maxThrow * character.humanThrowScale) + Vector3.up * 3000) * Time.deltaTime, ForceMode.VelocityChange);
+                            if(character.longTarget)
+                            {
+                                var forceDir = character.longTarget.transform.position - character.bpHolder.BodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.transform.position;
+
+                                character.bpHolder.BodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.GetComponent<InteractableObject>().isGrabbed = false;
+                                //character.bpHolder.BodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().AddForce((Vector3.ClampMagnitude(character.bpHolder.BodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().velocity * character.bpHolder.BodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().velocity.magnitude * character.minThrow * character.humanThrowScale / character.bpHolder.BodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().mass, character.maxThrow * character.humanThrowScale) + Vector3.up * 3000) * Time.deltaTime, ForceMode.VelocityChange);
+                                character.bpHolder.BodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().AddForce((Vector3.ClampMagnitude(forceDir.normalized * character.bpHolder.BodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().velocity.magnitude * character.maxThrow * character.humanThrowScale / character.bpHolder.BodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().mass, character.maxThrow * character.humanThrowScale) + Vector3.up * 1000) * Time.deltaTime, ForceMode.VelocityChange);
+
+                            }
+                            else
+                            {
+                                character.bpHolder.BodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.GetComponent<InteractableObject>().isGrabbed = false;
+                                character.bpHolder.BodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().AddForce((Vector3.ClampMagnitude(character.bpHolder.BodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().velocity * character.bpHolder.BodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().velocity.magnitude * character.minThrow * character.humanThrowScale / character.bpHolder.BodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().mass, character.maxThrow * character.humanThrowScale) + Vector3.up * 3000) * Time.deltaTime, ForceMode.VelocityChange);
+
+                            }
                             //character.bpHolder.BodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().AddForce(Vector3.ClampMagnitude(character.bpHolder.BodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().velocity * character.bpHolder.BodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().velocity.magnitude * character.minThrow * character.humanThrowScale / character.bpHolder.BodyPartsName[BodyPartNames.lhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().mass, character.maxThrow * character.humanThrowScale) * (character.simpleThrwoButtonClickTimer) * Time.deltaTime, ForceMode.VelocityChange);
 
                         }
@@ -144,8 +158,20 @@ namespace garagekitgames
                         {
                             if (character.bpHolder.BodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.GetComponent<InteractableObject>().partOfRagdoll)
                             {
-                               character.bpHolder.BodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.GetComponent<InteractableObject>().isGrabbed = false;
-                                character.bpHolder.BodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().AddForce((Vector3.ClampMagnitude(character.bpHolder.BodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().velocity * character.bpHolder.BodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().velocity.magnitude * character.minThrow * character.humanThrowScale / character.bpHolder.BodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().mass, character.maxThrow * character.humanThrowScale) + Vector3.up * 3000) * Time.deltaTime, ForceMode.VelocityChange);
+                                if(character.longTarget)
+                                {
+                                    var forceDir = character.longTarget.transform.position - character.bpHolder.BodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.transform.position;
+
+                                    character.bpHolder.BodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.GetComponent<InteractableObject>().isGrabbed = false;
+                                    //character.bpHolder.BodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().AddForce((Vector3.ClampMagnitude(character.bpHolder.BodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().velocity * character.bpHolder.BodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().velocity.magnitude * character.minThrow * character.humanThrowScale / character.bpHolder.BodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().mass, character.maxThrow * character.humanThrowScale) + Vector3.up * 3000) * Time.deltaTime, ForceMode.VelocityChange);
+                                    character.bpHolder.BodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().AddForce((Vector3.ClampMagnitude(forceDir.normalized * character.bpHolder.BodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().velocity.magnitude * character.maxThrow * character.humanThrowScale / character.bpHolder.BodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().mass, character.maxThrow * character.humanThrowScale) + Vector3.up * 1000) * Time.deltaTime, ForceMode.VelocityChange);
+                                }
+                                else
+                                {
+                                    character.bpHolder.BodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.GetComponent<InteractableObject>().isGrabbed = false;
+                                    character.bpHolder.BodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().AddForce((Vector3.ClampMagnitude(character.bpHolder.BodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().velocity * character.bpHolder.BodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().velocity.magnitude * character.minThrow * character.humanThrowScale / character.bpHolder.BodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().mass, character.maxThrow * character.humanThrowScale) + Vector3.up * 3000) * Time.deltaTime, ForceMode.VelocityChange);
+
+                                }
                                 //character.bpHolder.BodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().AddForce(Vector3.ClampMagnitude(character.bpHolder.BodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().velocity * character.bpHolder.BodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().velocity.magnitude * character.minThrow * character.humanThrowScale / character.bpHolder.BodyPartsName[BodyPartNames.rhandName].BodyPartGrabCheck.mycollision.GetComponent<Rigidbody>().mass, character.maxThrow * character.humanThrowScale) * (character.simpleThrwoButtonClickTimer) * Time.deltaTime, ForceMode.VelocityChange);
 
                             }
