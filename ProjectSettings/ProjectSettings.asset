@@ -261,7 +261,7 @@ PlayerSettings:
   AndroidTargetArchitectures: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: '{dedicated}: Keystores/BrutalBeatdown2.keystore'
+  AndroidKeystoreName: C:/Users/info/Documents/KeyStores/BrutalBeatdown2.keystore
   AndroidKeyaliasName: richard
   AndroidBuildApkPerCpuArchitecture: 1
   AndroidTVCompatibility: 0

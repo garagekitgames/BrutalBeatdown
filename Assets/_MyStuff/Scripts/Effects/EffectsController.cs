@@ -177,6 +177,17 @@ public class EffectsController : UnitySingletonPersistent<EffectsController>
 
         // Reset the damaged flag.
         enemyDamaged = false;
+
+        if(Input.GetKeyDown(KeyCode.F1))
+        {
+            SlowTime(4, 0);
+        }
+
+        if(Input.GetKeyDown(KeyCode.F2))
+        {
+            ResetTime(1);
+        }
+        
     }
 
 
@@ -915,7 +926,7 @@ public class EffectsController : UnitySingletonPersistent<EffectsController>
 
             source.Play();
             //
-           // Destroy(gO, source.clip.length + 0.1f);
+            Destroy(gO, source.clip.length + 0.1f);
             //
         }
     }

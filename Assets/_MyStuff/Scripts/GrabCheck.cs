@@ -51,48 +51,52 @@ public class GrabCheck : MonoBehaviour {
 
         if (collision.transform.root != transform.root && collision.gameObject.GetComponent<InteractableObject>() != null && !hasJoint && grabNow)
         {
-            test = gameObject.AddComponent<ConfigurableJoint>(); ;
-            // childConfigJoint.connectedBody = collision.rigidbody;
-            grabSuccess = true;
-            test.connectedBody = collision.rigidbody;
+            if(collision.gameObject.GetComponent<InteractableObject>().priorityModifier != InteractableObject.Priority.Ignore)
+            {
+                test = gameObject.AddComponent<ConfigurableJoint>(); ;
+                // childConfigJoint.connectedBody = collision.rigidbody;
+                grabSuccess = true;
+                test.connectedBody = collision.rigidbody;
 
-            //test.connectedBody = collision.rigidbody;
-            //this.actor.controlHandeler.leftCanClimb = true;
-            test.xMotion = ConfigurableJointMotion.Locked;
-            test.yMotion = ConfigurableJointMotion.Locked;
-            test.zMotion = ConfigurableJointMotion.Locked;
+                //test.connectedBody = collision.rigidbody;
+                //this.actor.controlHandeler.leftCanClimb = true;
+                test.xMotion = ConfigurableJointMotion.Locked;
+                test.yMotion = ConfigurableJointMotion.Locked;
+                test.zMotion = ConfigurableJointMotion.Locked;
 
-            test.angularXMotion = ConfigurableJointMotion.Limited;
-            test.angularYMotion = ConfigurableJointMotion.Limited;
-            test.angularZMotion = ConfigurableJointMotion.Limited;
+                test.angularXMotion = ConfigurableJointMotion.Limited;
+                test.angularYMotion = ConfigurableJointMotion.Limited;
+                test.angularZMotion = ConfigurableJointMotion.Limited;
 
-            //test.xMotion = ConfigurableJointMotion.Limited;
-            //test.yMotion = ConfigurableJointMotion.Limited;
-            //test.zMotion = ConfigurableJointMotion.Limited;
-            //SoftJointLimit testLinearLimit = new SoftJointLimit();
-            //testLinearLimit.limit = 0.001f;
-            //testLinearLimit.bounciness = 1f;
-            //test.linearLimit = testLinearLimit;
+                //test.xMotion = ConfigurableJointMotion.Limited;
+                //test.yMotion = ConfigurableJointMotion.Limited;
+                //test.zMotion = ConfigurableJointMotion.Limited;
+                //SoftJointLimit testLinearLimit = new SoftJointLimit();
+                //testLinearLimit.limit = 0.001f;
+                //testLinearLimit.bounciness = 1f;
+                //test.linearLimit = testLinearLimit;
 
-            //SoftJointLimitSpring testLinearLimitSpring = new SoftJointLimitSpring();
-            //testLinearLimitSpring.spring = 1000;
-            //testLinearLimitSpring.damper = 1;
-            //test.linearLimitSpring = testLinearLimitSpring;
+                //SoftJointLimitSpring testLinearLimitSpring = new SoftJointLimitSpring();
+                //testLinearLimitSpring.spring = 1000;
+                //testLinearLimitSpring.damper = 1;
+                //test.linearLimitSpring = testLinearLimitSpring;
 
-            test.enablePreprocessing = false;
-            test.projectionDistance = 0.1f;
-            test.projectionAngle = 180f;
-            test.projectionMode = JointProjectionMode.PositionAndRotation;
-            test.enableCollision = false;
+                test.enablePreprocessing = false;
+                test.projectionDistance = 0.1f;
+                test.projectionAngle = 180f;
+                test.projectionMode = JointProjectionMode.PositionAndRotation;
+                test.enableCollision = false;
 
-            /* test.breakForce = 30000f;
-             test.breakTorque = 30000f;*/
-            /*this.actor.bodyHandeler.leftGrabRigidbody = collisionRigidbody;
-            this.actor.bodyHandeler.leftGrabInteractable = collisionInteractable;*/
+                /* test.breakForce = 30000f;
+                 test.breakTorque = 30000f;*/
+                /*this.actor.bodyHandeler.leftGrabRigidbody = collisionRigidbody;
+                this.actor.bodyHandeler.leftGrabInteractable = collisionInteractable;*/
 
-            mycollision = collision.collider;
+                mycollision = collision.collider;
 
-            hasJoint = true;
+                hasJoint = true;
+            }
+            
         }
         else
         {

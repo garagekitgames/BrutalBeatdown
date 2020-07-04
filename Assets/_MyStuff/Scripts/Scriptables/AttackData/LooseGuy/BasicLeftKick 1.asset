@@ -27,7 +27,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7ade5db1796d09d43abce3da2e3fcca6, type: 2}
   attackForceApplyPercent: 0.25
   attackPowerIncreaseRate: 5
-  accuracyReduceFactor: 0.028
+  accuracyReduceFactor: 0
   attackSpeed: 0.2
   startAttackPower: 1000
   maxAttackPower: 3000
@@ -36,5 +36,5 @@ MonoBehaviour:
   bodyPartToHitWith: {fileID: 11400000, guid: b8fd48df395c0cc49bd9ff1dc2166d30, type: 2}
   windupHipBodyPart: {fileID: 11400000, guid: 20ee43b86dc57b44dac3640b44a4ae64, type: 2}
   windUpHipForward: -20
-  jumpOnWindUp: 1
-  jumpOnWindupForce: {x: 0, y: 200, z: 0}
+  jumpOnWindUp: 0
+  jumpOnWindupForce: {x: 0, y: 0, z: 0}

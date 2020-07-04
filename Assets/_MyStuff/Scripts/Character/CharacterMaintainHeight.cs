@@ -25,15 +25,15 @@ public class CharacterMaintainHeight : MonoBehaviour
     {
         // ***** TRY HOLD A OBJECT AT A SPECIFIC HEIGHT (optionally in relation to another object) ***
         //
-        if (Time.time > nextActionTime)
-        {
+       // if (Time.time > nextActionTime)
+       // {
             RaycastHit groundHit;
             if (Physics.Raycast(new Ray(transform.position, Vector3.down), out groundHit, 100)) //if (Physics.Raycast(new Ray(transform.position, Vector3.down), out groundHit, 100, 1 << LayerMask.NameToLayer("Ground")))
             {
                 groundHeight = groundHit.point.y;
             }
-            nextActionTime += period;
-        }
+         //   nextActionTime += period;
+        //}
         float diff = (groundHeight + desiredHeight) - (transform.position.y + rigidbody.velocity.y * leadTime);
         if (inRelationTo != null)
         {

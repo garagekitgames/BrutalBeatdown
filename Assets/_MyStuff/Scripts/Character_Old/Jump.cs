@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using garagekitgames;
 using UnityEngine.Events;
+using BehaviorDesigner.Runtime.Tasks.Unity.UnityDebug;
+
 public class Jump : MonoBehaviour {
 
     public Rigidbody chestBody;
@@ -23,6 +25,9 @@ public class Jump : MonoBehaviour {
     public float jumpForce = 200;
     public float jumpForwardForce = 150;
     public float facePlantForce = 30;
+
+    public bool spin = true;
+    public float spinTorque = 360;
     protected float facePlantM = 1;
     protected float getUpCounter = 0;
     public bool canJump = true;
@@ -70,6 +75,8 @@ public class Jump : MonoBehaviour {
     public Vector3 jumpTowards;
 
     public string jumpButton;
+
+    
     // Use this for initialization
     void Start () {
         pContrl = GetComponent<PlayerController1>();
@@ -123,13 +130,8 @@ public class Jump : MonoBehaviour {
         //
         // **** NEXT: REACTIVATE ALL THE OTHER COMPONENTS THAT MOVE THE LIMBS AND TORSO ****
         //
-        inAir = false;
-        maintainHeight.enabled = true;
-        maintainHeight.desiredHeight = maintainHeightStanding;
-        faceDirection.enabled = true;
-        legs.enabled = true;
-        qDrag.enabled = true;
-        character.speed = character.normalSpeed;
+        
+        
         
         /*if (chestUpright != null)
             chestUpright.enabled = true;*/
@@ -139,50 +141,10 @@ public class Jump : MonoBehaviour {
         chestBody.AddForceAtPosition((chestBody.transform.forward * -1 + Vector3.up) * 20, chestBody.transform.TransformPoint(Vector3.up * 0.2f), ForceMode.Impulse);
 
         kickedInAir = false;
-        for (int i = 0; i < 2; i++)
-        {
-           /* JointDrive x = thighsJoint[i].slerpDrive;
-            x.positionDamper = 0;
-            x.positionSpring = 0;
-            x.maximumForce = 0;
-            thighsJoint[i].slerpDrive = x;
-
-            Vector3 jointValue = new Vector3(0, 0f, 0f);
-
-            thighsJoint[i].targetAngularVelocity = jointValue;
-
-            JointDrive x1 = legsJoint[i].slerpDrive;
-            x1.positionDamper = 0;
-            x1.positionSpring = 0;
-            x1.maximumForce = 0;
-            legsJoint[i].slerpDrive = x1;
-
-            Vector3 jointValue1 = new Vector3(-0, 0f, 0f);
-
-            legsJoint[i].targetAngularVelocity = jointValue1;
-            */
-            JointDrive x = thighsJoint[i].slerpDrive;
-            x.positionDamper = 10;
-            x.positionSpring = 100;
-            x.maximumForce = 100;
-            thighsJoint[i].slerpDrive = x;
-
-            Vector3 jointValue = new Vector3(0, 0f, 0f);
-
-            thighsJoint[i].targetAngularVelocity = jointValue;
-
-            JointDrive x1 = legsJoint[i].slerpDrive;
-            x1.positionDamper = 0.6f;
-            x1.positionSpring = 50;
-            x1.maximumForce = 50;
-            legsJoint[i].slerpDrive = x1;
-
-            Vector3 jointValue1 = new Vector3(-0, 0f, 0f);
-
-            legsJoint[i].targetAngularVelocity = jointValue1;
-        }
+        
         
         canJump = true;
+        inAir = false;
     }
     private void Jump2()
     {
@@ -323,6 +285,8 @@ public class Jump : MonoBehaviour {
             //        kickedInAir = true;
             //    }
             //}
+
+            
             
             
             if (jumpCounter >= bendKneeDelay && jumpCounter < airTimeDelay)
@@ -331,7 +295,63 @@ public class Jump : MonoBehaviour {
                 if(!kickedInAir)
                     KneeBend();
             }
-            if (jumpCounter >= airTimeDelay)
+
+            if (jumpCounter >= airTimeDelay )
+            {
+                //OnJumpOver.Invoke();
+                maintainHeight.enabled = true;
+                maintainHeight.desiredHeight = maintainHeightStanding;
+                faceDirection.enabled = true;
+                legs.enabled = true;
+                qDrag.enabled = true;
+                character.speed = character.normalSpeed;
+                //GetUpFromJump();
+
+                for (int i = 0; i < 2; i++)
+                {
+                    /* JointDrive x = thighsJoint[i].slerpDrive;
+                     x.positionDamper = 0;
+                     x.positionSpring = 0;
+                     x.maximumForce = 0;
+                     thighsJoint[i].slerpDrive = x;
+
+                     Vector3 jointValue = new Vector3(0, 0f, 0f);
+
+                     thighsJoint[i].targetAngularVelocity = jointValue;
+
+                     JointDrive x1 = legsJoint[i].slerpDrive;
+                     x1.positionDamper = 0;
+                     x1.positionSpring = 0;
+                     x1.maximumForce = 0;
+                     legsJoint[i].slerpDrive = x1;
+
+                     Vector3 jointValue1 = new Vector3(-0, 0f, 0f);
+
+                     legsJoint[i].targetAngularVelocity = jointValue1;
+                     */
+                    JointDrive x = thighsJoint[i].slerpDrive;
+                    x.positionDamper = 10;
+                    x.positionSpring = 100;
+                    x.maximumForce = 100;
+                    thighsJoint[i].slerpDrive = x;
+
+                    Vector3 jointValue = new Vector3(0, 0f, 0f);
+
+                    thighsJoint[i].targetAngularVelocity = jointValue;
+
+                    JointDrive x1 = legsJoint[i].slerpDrive;
+                    x1.positionDamper = 0.6f;
+                    x1.positionSpring = 50;
+                    x1.maximumForce = 50;
+                    legsJoint[i].slerpDrive = x1;
+
+                    Vector3 jointValue1 = new Vector3(-0, 0f, 0f);
+
+                    legsJoint[i].targetAngularVelocity = jointValue1;
+                }
+            }
+
+            if (jumpCounter >= airTimeDelay && character.grounded)
             {
                 OnJumpOver.Invoke();
                 GetUpFromJump();
@@ -342,7 +362,9 @@ public class Jump : MonoBehaviour {
         // Update is called once per frame
         void FixedUpdate() {
 
-        if (!inAir)
+        
+
+        if (!inAir && character.grounded)
         {
             //input.timerValue = 0.17f;
             character.enableDrag = true;
@@ -389,19 +411,41 @@ public class Jump : MonoBehaviour {
              }
 
         }
-        else if (inAir)
+        else if (inAir || !character.grounded)
         {
-
-
             
+            if (character.windUp)
+            {
+                chestBody.velocity *= -30f * Time.deltaTime;
+            }
+
             character.enableDrag = false;
             //
             // *******************************************  TOWARDS END OF JUMP, FORCE A FACEPLANT *****
             //
-            if (jumpCounter > airTimeDelay * 0.15f && jumpCounter < airTimeDelay * 0.4f)
+            if (jumpCounter > airTimeDelay * 0.1f && jumpCounter < airTimeDelay * 0.8f)
             {
-                chestBody.AddForceAtPosition((chestBody.transform.forward + Vector3.down) * facePlantForce * facePlantM * Time.deltaTime, chestBody.transform.TransformPoint(Vector3.up * 2), ForceMode.Impulse);
+                //var forwardDir = chestBody.transform.TransformDirection(inputDirection) + Vector3.down;
+                 chestBody.AddForceAtPosition((chestBody.transform.forward + Vector3.down) * facePlantForce * facePlantM * Time.deltaTime, chestBody.transform.TransformPoint(Vector3.up * 2), ForceMode.Impulse);
+                //chestBody.AddTorque(chestBody.transform.forward);
+                //chestBody.AddForceAtPosition((forwardDir) * facePlantForce * facePlantM * Time.deltaTime, chestBody.transform.TransformPoint(Vector3.up * 2), ForceMode.Impulse);
 
+
+                if(spin)
+                {
+                    chestBody.maxAngularVelocity = Mathf.Infinity;
+                    inputDirection = Camera.main.transform.TransformDirection(character.inputDirection);
+                    inputDirection.y = 0.0f;
+                    Vector3 middleFinger = Vector3.Cross(Vector3.up, inputDirection);
+                    Debug.DrawRay(chestBody.transform.position, middleFinger * 3, Color.yellow);
+                    chestBody.AddTorque(middleFinger * spinTorque);
+
+                    Debug.Log("angular velocity : " + chestBody.angularVelocity.magnitude);
+
+                }
+               
+
+                //Debug.DrawRay(chestBody.transform.TransformPoint(Vector3.up * 2), chestBody.transform.forward + Vector3.down, Color.yellow);
                 foreach (Rigidbody f in feetBodies)
                 {
                     f.AddForce(Vector3.up * 10 * Time.deltaTime, ForceMode.Impulse);
