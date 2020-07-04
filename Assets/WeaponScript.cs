@@ -43,7 +43,7 @@ public class WeaponScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //if()
     }
 
     public void rotateWeapon()
@@ -186,13 +186,15 @@ public class WeaponScript : MonoBehaviour
 
     public void Throw()
     {
+
+        var throwDirection = (character.target - character.bpHolder.bodyPartsName[BodyPartNames.hipName].transform.position).normalized;
         Sequence s = DOTween.Sequence();
         s.Append(transform.DOMove(transform.position - transform.forward, .01f)).SetUpdate(true);
         s.AppendCallback(() => transform.parent = null);
         s.AppendCallback(() => BreakJoint());
         //s.AppendCallback(() => transform.position = Camera.main.transform.position + (Camera.main.transform.right * .1f));
         //s.AppendCallback(() => ChangeSettings());
-        s.AppendCallback(() => myBP.BodyPartRb.AddForce(character.inputDirection * 25, ForceMode.Impulse));
+        s.AppendCallback(() => myBP.BodyPartRb.AddForce(throwDirection * 25, ForceMode.Impulse));
         //s.AppendCallback(() => myBP.BodyPartRb.AddTorque(transform.transform.right * 5, ForceMode.Impulse));
         s.AppendCallback(() => DestroyReference());
     }

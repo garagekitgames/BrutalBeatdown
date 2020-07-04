@@ -74,6 +74,10 @@ public class TargetCheck : MonoBehaviour
 
     public CharacterFaceDirection fD;
 
+    public string baseFDPartName = "hip";
+
+    public Jump characterJump;
+
 
     public enum TargetingType
     {
@@ -114,9 +118,10 @@ public class TargetCheck : MonoBehaviour
         }
         withingAngle = new List<InteractableObject>();
         character = GetComponent<CharacterThinker>();
+        characterJump = GetComponent<Jump>();
         //character = transform.GetComponent<CharacterThinker>();
 
-        
+
         //if (TargetingHandeler._throwPoints == null)
         //{
         //    this.UpdateThrowpoints();
@@ -137,7 +142,7 @@ public class TargetCheck : MonoBehaviour
         //this.actor = this;
         this.initialized = true;
 
-        BodyPartMono bodyPartMono = character.bpHolder.BodyPartsName["hip"];
+        BodyPartMono bodyPartMono = character.bpHolder.BodyPartsName[baseFDPartName];
         fD = bodyPartMono.BodyPartFaceDirection;
     }
     private void UpdateHitColliders()
@@ -271,7 +276,18 @@ public class TargetCheck : MonoBehaviour
         //{
 
         //}
-
+        if(characterJump)
+        {
+            if (characterJump.inAir)
+            {
+                targetingType = TargetingType.Dynamic;
+            }
+            else
+            {
+                targetingType = TargetingType.DynamicTargetByDirection;
+            }
+        }
+        
 
         FindLongTarget();
 
@@ -635,6 +651,10 @@ public class TargetCheck : MonoBehaviour
 
     public void TargetByDirection()
     {
+        if (character.rightgrab || character.leftgrab)
+        {
+            return;
+        }
         if(withingAngle != null)
         {
             withingAngle.Clear();
@@ -642,14 +662,14 @@ public class TargetCheck : MonoBehaviour
         
 
 
-        if (interactablesInSphere2 != null)
+        if (interactablesInSphere != null)
         {
             if (true)
             {
                 this.CheckTargetingSphere();
-                if (interactablesInSphere2.Count > 0)
+                if (interactablesInSphere.Count > 0)
                 {
-                    foreach (var item in interactablesInSphere2)
+                    foreach (var item in interactablesInSphere)
                     {
                         Vector3 enemyDir = item.transform.position - character.bpHolder.BodyPartsName["hip"].transform.position;
 

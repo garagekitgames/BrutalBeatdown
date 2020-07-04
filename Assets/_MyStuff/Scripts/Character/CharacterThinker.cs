@@ -210,6 +210,8 @@ namespace garagekitgames
         public bool isCaught;
         public bool prevSide;
 
+        public string primaryFaceDirection = "hip";
+
         public GameObject longTarget;
 
         public void DeathCry()

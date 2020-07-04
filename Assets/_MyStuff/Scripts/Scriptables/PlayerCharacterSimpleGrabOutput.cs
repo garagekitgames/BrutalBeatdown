@@ -26,7 +26,7 @@ namespace garagekitgames
 
                     Vector3 horizontalVelocity = character.bpHolder.BodyPartsName[BodyPartNames.chestName].BodyPartRb.velocity;
                     character.pullForceVector = new Vector3(character.xForceDirection * (character.horizontalPullForce / (1 + Mathf.Abs(horizontalVelocity.x) * 4)), (2.5f) * character.verticalPullForce, character.zForceDirection * (character.horizontalPullForce / (1 + Mathf.Abs(horizontalVelocity.z) * 4)));
-                    character.bpHolder.bodyPartsName[BodyPartNames.hipName].BodyPartMaintainHeight.desiredHeight = character.bpHolder.bodyPartsName[BodyPartNames.hipName].BodyPartMaintainHeight.initialDesiredHeight + 0.5f;
+                    character.bpHolder.bodyPartsName[character.primaryFaceDirection].BodyPartMaintainHeight.desiredHeight = character.bpHolder.bodyPartsName[character.primaryFaceDirection].BodyPartMaintainHeight.initialDesiredHeight + 0.5f;
 
                 }
                 if (character.slamTimer >= character.slamTime * 0.4f)  //if (character.slamTimer >= character.slamTime * 0.4f && character.slamTimer < character.slamTime * 1f )
@@ -59,7 +59,7 @@ namespace garagekitgames
                     }
 
                     //character.bpHolder.bodyPartsName[BodyPartNames.hipName].BodyPartRb.AddForce((character.bpHolder.bodyPartsName[BodyPartNames.hipName].transform.forward * 2) + (Vector3.down * 150) * Time.deltaTime, ForceMode.VelocityChange);
-                    character.bpHolder.bodyPartsName[BodyPartNames.hipName].BodyPartMaintainHeight.desiredHeight = -1f;
+                    character.bpHolder.bodyPartsName[character.primaryFaceDirection].BodyPartMaintainHeight.desiredHeight = -1f;
                 }
                 /*if (character.slamTimer >= character.slamTime * 0.6f && character.slamTimer < character.slamTime * 1f)
                 {
@@ -68,7 +68,7 @@ namespace garagekitgames
                 if (character.slamTimer >= character.slamTime * 1f && character.grounded)
                 {
 
-                    character.bpHolder.bodyPartsName[BodyPartNames.hipName].BodyPartMaintainHeight.desiredHeight = character.bpHolder.bodyPartsName[BodyPartNames.hipName].BodyPartMaintainHeight.initialDesiredHeight;
+                    character.bpHolder.bodyPartsName[character.primaryFaceDirection].BodyPartMaintainHeight.desiredHeight = character.bpHolder.bodyPartsName[character.primaryFaceDirection].BodyPartMaintainHeight.initialDesiredHeight;
 
                     character.slam = false;
                     character.slamTimer = 0f;

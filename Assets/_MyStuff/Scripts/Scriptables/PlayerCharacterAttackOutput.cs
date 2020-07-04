@@ -58,7 +58,7 @@ namespace garagekitgames
                 }
 
                 //To slow down player
-                chestBody.velocity *= -30f * Time.deltaTime;
+                //chestBody.velocity *= -30f * Time.deltaTime;
                 character.speed = character.windUpSpeed;
                 if(hipFaceDirection)
                 {

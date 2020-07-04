@@ -104,6 +104,9 @@ namespace garagekitgames
 
             if (currentAttack == null)
                 return;
+
+            if (!character.bpHolder.bodyParts.ContainsKey(currentAttack.bodyPartToHitWith))
+                return;
             BodyPartMono soundPart = character.bpHolder.bodyParts[currentAttack.bodyPartToHitWith];
             BodyPartMono yellPart = character.bpHolder.bodyParts[currentAttack.chestPart];
             // xWT = soundPart.GetComponentInChildren<XWeaponTrail>(true);
@@ -168,6 +171,9 @@ namespace garagekitgames
             //playWoosh = character.Remember<bool>("playWoosh");
 
             if (currentAttack == null)
+                return;
+
+            if (!character.bpHolder.bodyParts.ContainsKey(currentAttack.bodyPartToHitWith))
                 return;
             BodyPartMono soundPart = character.bpHolder.bodyParts[currentAttack.bodyPartToHitWith];
             BodyPartMono yellPart = character.bpHolder.bodyParts[currentAttack.chestPart];
