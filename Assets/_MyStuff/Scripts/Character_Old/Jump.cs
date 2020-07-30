@@ -413,10 +413,11 @@ public class Jump : MonoBehaviour {
         }
         else if (inAir || !character.grounded)
         {
-            
+            chestBody.maxAngularVelocity = Mathf.Infinity;
             if (character.windUp)
             {
                 chestBody.velocity *= -30f * Time.deltaTime;
+                chestBody.angularVelocity *= -30f * Time.deltaTime;
             }
 
             character.enableDrag = false;
@@ -433,7 +434,7 @@ public class Jump : MonoBehaviour {
 
                 if(spin)
                 {
-                    chestBody.maxAngularVelocity = Mathf.Infinity;
+                    
                     inputDirection = Camera.main.transform.TransformDirection(character.inputDirection);
                     inputDirection.y = 0.0f;
                     Vector3 middleFinger = Vector3.Cross(Vector3.up, inputDirection);

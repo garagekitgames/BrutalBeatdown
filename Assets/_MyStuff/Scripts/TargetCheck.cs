@@ -620,7 +620,20 @@ public class TargetCheck : MonoBehaviour
         float forwardAmount = localMove.z;
 
         //
-        globalPosition = fD.transform.position + fD.rigidbody.transform.TransformDirection(fD.bodyForward).normalized * 2;
+       // globalPosition = fD.transform.position + fD.rigidbody.transform.TransformDirection(fD.bodyForward).normalized * 2;
+
+        if(inputDirection == Vector3.zero)
+        {
+            globalPosition = fD.transform.position + fD.rigidbody.transform.TransformDirection(fD.bodyForward).normalized * 2;
+        }
+        else
+        {
+            globalPosition = fD.transform.position + localMove * 2;
+        }
+        
+
+        Debug.DrawLine(fD.transform.position, globalPosition, Color.blue);
+
         //targetTransform.transform.position = globalPosition;
         globalPosition.y = 1.8f;
 

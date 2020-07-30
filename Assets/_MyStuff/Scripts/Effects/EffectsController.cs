@@ -119,6 +119,7 @@ public class EffectsController : UnitySingletonPersistent<EffectsController>
 
     public IntVariable currentPlayerLevel;
 
+    public bool toggleSlow = false;
     private void Start()
     {
         Time.timeScale = 1;
@@ -126,6 +127,19 @@ public class EffectsController : UnitySingletonPersistent<EffectsController>
         currentBgFx = 1;
     }
 
+    public void toggleTimeSlow()
+    {
+        toggleSlow = !toggleSlow;
+
+        if(toggleSlow)
+        {
+            SlowTime(4, 0);
+        }
+        else
+        {
+            ResetTime(1);
+        }
+    }
     public void ChangedBgFx(int i)
     {
         currentBgFx = i;

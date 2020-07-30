@@ -54,7 +54,7 @@
     <file>Assets/Plugins/Android/androidx.versionedparcelable.versionedparcelable-1.0.0.aar</file>
     <file>Assets/Plugins/Android/androidx.viewpager.viewpager-1.0.0.aar</file>
     <file>Assets/Plugins/Android/com.android.installreferrer.installreferrer-1.0.aar</file>
-    <file>Assets/Plugins/Android/com.applovin.applovin-sdk-9.12.0.aar</file>
+    <file>Assets/Plugins/Android/com.applovin.applovin-sdk-9.13.0.aar</file>
     <file>Assets/Plugins/Android/com.applovin.mediation.facebook-adapter-5.6.0.0.aar</file>
     <file>Assets/Plugins/Android/com.applovin.mediation.google-adapter-17.2.1.6.aar</file>
     <file>Assets/Plugins/Android/com.applovin.mediation.unityads-adapter-3.4.0.0.aar</file>
@@ -85,7 +85,7 @@
     <setting name="gradleBuildEnabled" value="True" />
     <setting name="gradleTemplateEnabled" value="False" />
     <setting name="installAndroidPackages" value="True" />
-    <setting name="packageDir" value="Assets/Plugins/Android" />
+    <setting name="packageDir" value="Assets\Plugins\Android" />
     <setting name="patchAndroidManifest" value="True" />
     <setting name="patchMainTemplateGradle" value="True" />
     <setting name="projectExportEnabled" value="False" />

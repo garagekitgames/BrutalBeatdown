@@ -55,7 +55,7 @@ Camera:
   m_FOVAxisMode: 0
   m_SensorSize: {x: 28.69, y: 51}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 186.98476
+  m_FocalLength: 389.62863
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -64,7 +64,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 15.531584
+  field of view: 7.4889855
   orthographic: 0
   orthographic size: 2.810148
   m_Depth: -1
@@ -365,10 +365,10 @@ MonoBehaviour:
   _adjustMode: 1
   _verticalSnapMode: 1
   _horizontalSnapMode: 1
-  _mainAreaWidth: 1.0500783
+  _mainAreaWidth: 1.0277296
   _mainAreaHeight: 1
   _verticalFOV: 75.17818
-  _horizontalFOV: 32.560913
+  _horizontalFOV: 15.956796
   _verticalSize: 7.925496
   _horizontalSize: 6.0180078
 --- !u!114 &529253653797224451
